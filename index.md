@@ -1,6 +1,8 @@
 # URIX: URIs, eXtensible
 
 ## Mint your names (with URIs) as NFTs on Matic
+Unfortunately, we don't have UI/UX screen mock ups yet, but basically, there will be a web page where you can select a slug, check if it's still available, then add another slug, provide URI for each and mint them by one function call from a contract that extends ERC721URIStorage from OpenZeppelin. This way, we get a decentralised URI shortener service where every URI is treated as an NFT, with some bells and whistles.
+
 **Testnet**: reserve any number of mappings (name=>URI) for free
 
 **Mainnet**: if you prepay (with MATIC) the plasma needed to mass-mint your tokens, we call (after receiving batch of such prepayment transactions) a new function that mints everything, selected by a set of addresses. For this, we probably will deploy a testnet contract that receives (Mainnet) txId and, after verifying some kind of signature, reserves listed slugs/indices for Mainnet batch-minting...
@@ -37,14 +39,15 @@ A token can be minted with a custom slug, if there was no such slug in the exist
 In the minting process, URIXes with already taken slugs will just get ordinal indices. A slug cannot be changed afterwards, but you can mint another token, providing the previous one as it's parent. URIX minted without a custom slug, cannot gain it later.
 
 Any string can be a custom slug if it doesn't contain #, ? and (possibly) other URI-inconvenient characters. It has to be not one of the following:
-1. string consisting of only [0..9] - as that would mean a decimal representation of token index;
-2. string consisting of only i/[0..9a..f] prepended by 0x - a that would mean a hexadecimal same.
+1. string consisting of only r[0..9] - as that would mean a decimal representation of token index, e.g. urix.me/666
+2. string consisting of only r[0..9a..f]/i prepended by 0x - a that would mean a hexadecimal same, e.g. urix.me/0xABC0
 Every token can be addressed as decimal, hexadecimal, base64 or (when present) it's custom slug.
 
 If it contains /, then it becomes a leaf in the tree of notions. However, it has to be addressed with a prefix: urix.me/p/path/to/tree/leaf/example, p meaning "path".
 
-This is done so that we reserve first-level (root) notions for ourselves, or for our affiliates (example: urix.me/cat/0x&lt;genetic_code_hash&gt; may mean a CryptoKitty later)
+This is done so that we reserve first-level (root) notions for ourselves, or for our affiliates (example: urix.me/cat/0x&lt;genetic_code&gt; may mean a CryptoKitty later)
 
-So if a chinese girl named Ying wants to reserve a name for her kitty named Tom, she can provide ying/cats/tom as the slug, but the URIX will be: urix.me/p/ying/cats/tom
+So if a Chinese girl named Ying wants to reserve a name for her kitty named Tom, she can provide ying/cats/tom as the slug, but the URIX will be: urix.me/p/Ying/cats/Tom
 
-We will also reserve small numbers (<1000 decimal) and all custom slugs that contain less than 3 symbols. And any number of initial names, that we deem interesting.
+We will also reserve small numbers (<1000 decimal) and all custom slugs that contain less than 3 symbols. So, alas, that baby urix.me/666 is ours. And any number of initial names, that we deem interesting.
+Like name urix itself.

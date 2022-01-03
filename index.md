@@ -51,3 +51,5 @@ So if a Chinese girl named Ying wants to reserve a name for her kitty named Tom,
 
 We will also reserve small numbers (<1000 decimal) and all custom slugs that contain less than 3 symbols. So, alas, that baby urix.me/666 is ours. And any number of initial names, that we deem interesting.
 Like name urix itself.
+
+Last modified 2022-01-04 02:02 by TONNFT Treasurer

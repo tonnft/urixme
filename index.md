@@ -1,5 +1,7 @@
 # URIX: URIs, eXtensible
 
+![500px-Edwin_Long_002](https://user-images.githubusercontent.com/6504727/148120551-59933ead-1b47-42dc-aeb8-77da5c83b93c.jpg)
+
 ## Mint your names (with URIs) as NFTs on Matic
 Unfortunately, we don't have UI/UX screen mock ups yet, but basically, there will be a web page where you can select a slug, check if it's still available, then add another slug, provide URI for each and mint them by one function call from a contract that extends ERC721URIStorage from OpenZeppelin. This way, we get a decentralised URI shortener service where every URI is treated as an NFT, with some bells and whistles.
 
@@ -52,4 +54,4 @@ So if a Chinese girl named Ying wants to reserve a name for her kitty named Tom,
 We will also reserve small numbers (<1000 decimal) and all custom slugs that contain less than 3 symbols. So, alas, that baby urix.me/666 is ours. And any number of initial names, that we deem interesting.
 Like name urix itself.
 
-Last modified 2022-01-04 02:02 by TONNFT Treasurer
+Last modified 2022-01-04 23:36 by TONNFT Treasurer

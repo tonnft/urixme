@@ -25,7 +25,7 @@ This way everything valuable born during Testnet beta-testing may end up on Mati
 - **Parents**: an array of links to parent notions. Examples: several scientific ideas giving birth to a new invention; a franchisee representing his business with a link to the franchise; an Ethereum cryptokitty with it's parents recorded on our 2nd level blockchain.
 
 ## What's a Slug?
-This term comes from URL shorteners, and inititally URIX was just an URL shortener (decentralised) service.
+This term comes from URL shorteners, and initially URIX was just an URL shortener (decentralised) service.
 
 There are URIXes with a custom slug and without. Every URIX has index, or ordinal: the number, starting with 0, which increments when a new token is minted. Some URIXes also have a string, stored as **slug** field in token's blockchain metadata.
 

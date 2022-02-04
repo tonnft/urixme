@@ -19,39 +19,38 @@
 <body style="font-family:Roboto">
 <p>
 <h1>Interactive Fiction, Part 1</h1>
-В четырёх голосовухах
+В четырёх голосовухах, которые идут друг за другом благодаря JS взятому со Stack Overflow...
+<a data-url="../assets/audio_2022-02-04_13-59-24.ogg" class="track"></a>
+<a data-url="../assets/audio_2022-02-04_14-02-56.ogg" class="track"></a>
+<a data-url="../assets/audio_2022-02-04_14-05-54.ogg" class="track"></a>
+<a data-url="../assets/audio_2022-02-04_14-06-20.ogg" class="track"></a>
 <table>
-    <tr><td colspan="2">
-        <audio controls>
+    <tr><td>
+        <audio controls id="player">
             <source src="../assets/audio_2022-02-04_13-59-24.ogg" type="audio/ogg">
             <p>Your browser doesn't support HTML5 audio. Here is a <a href="../assets/audio_2022-02-04_13-59-24.ogg">link to the audio</a> instead.</p>
         </audio></td>
     </tr>
     <tr>
-        <td colspan="2"><img src="../assets/4b768921daff93bf69a3f42762af196567f830f04d2c10a71904746be12d11b6.jpg" width="710px" height="533px"></td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <audio controls>
-                <source src="../assets/audio_2022-02-04_14-02-56.ogg" type="audio/ogg">
-                <p>Your browser doesn't support HTML5 audio. Here is a <a href="../assets/audio_2022-02-04_14-02-56.ogg">link to the audio</a> instead.</p>
-            </audio>
-        </td>
-    </tr>
-    <tr><td colspan="2">
-        <audio controls>
-            <source src="../assets/audio_2022-02-04_14-05-54.ogg" type="audio/ogg">
-            <p>Your browser doesn't support HTML5 audio. Here is a <a href="../assets/audio_2022-02-04_14-05-54.ogg">link to the audio</a> instead.</p>
-        </audio>
-    </td>
-    </tr>
-    <tr><td colspan="2">
-        <audio controls>
-            <source src="../assets/audio_2022-02-04_14-06-20.ogg" type="audio/ogg">
-            <p>Your browser doesn't support HTML5 audio. Here is a <a href="../assets/audio_2022-02-04_14-06-20.ogg">link to the audio</a> instead.</p>
-        </audio>
-    </td>
+        <td><img src="../assets/4b768921daff93bf69a3f42762af196567f830f04d2c10a71904746be12d11b6.jpg" width="710px" height="533px"></td>
     </tr>
 </table>
 </body>
+<script>
+    const audioArray = document.getElementsByClassName('track'); //Get a list of all tracks
+    let i = 0; //Initiate current Index
+    const player = document.getElementById('player'); //get the player
+    player.src = audioArray.item(i).dataset.url; //set first track to play
+    player.addEventListener('ended', function() { //when a track finished playing
+        i++; //increase index
+        if (i < audioArray.length) { //If current index is smaller than count of tracks
+            player.src = audioArray[i].dataset.url; //set next track
+            player.play();
+            return; // stop further processing of this function for now
+        }
+        // current index is greater than count of tracks
+        i = 0; // therefore we reset the current index to the first available track, and stop playing
+        player.src = audioArray[i].dataset.url; // and set it to be played
+    });
+</script>
 </html>
